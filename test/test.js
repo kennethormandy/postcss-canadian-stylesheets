@@ -40,8 +40,12 @@ describe('postcss-canadian-stylesheets', function () {
         test('a{ color: gray !sorry; }', 'a{ color: gray !important; }', {}, done);
     });
 
+    it('converts centre to center', function (done) {
+        test('a{ text-align: centre; }', 'a{ text-align: center; }', {}, done);
+    });
+
     it('converts all the things', function (done) {
-        test('a{ colour: grey !sorry; }', 'a{ color: gray !important; }', {}, done);
+        test('a{ colour: grey !sorry; align-items: centre; }', 'a{ color: gray !important; align-items: center; }', {}, done);
     });
 
 });
